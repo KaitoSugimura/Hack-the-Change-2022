@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <header class="header">
-      <a href="#">
-        <img class="logo" alt="Logo" src="." />
-      </a>
-      <nav class="main-nav">
-        <ul class="main-nav-list">
-          <li><a class="main-nav-link" href="#how">Home</a></li>
-          <li><a class="main-nav-link" href="#meals">Donate</a></li>
-          <li>
-            <a class="main-nav-link" href="#testimonials">Profile</a>
-          </li>
-          <li><a class="main-nav-link" href="#pricing">Premium</a></li>
-          <li><a class="main-nav-link nav-cta" href="#cta">Sign in</a></li>
-        </ul>
-      </nav>
-    </header>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+
+  <script src="./firebase.js" type="module"> </script>
+  <script src="app.js" defer type="module"></script>
+
+</head>
+
+<body>
+  <header class="header">
+    <a href="#">
+      <img class="logo" alt="Logo" src="." />
+    </a>
+    <nav class="main-nav">
+      <ul class="main-nav-list">
+        <li><a class="main-nav-link" href="#how">Home</a></li>
+        <li><a class="main-nav-link" href="#meals">Donate</a></li>
+        <li>
+          <a class="main-nav-link" href="#testimonials">Profile</a>
+        </li>
+        <li><a class="main-nav-link" href="#pricing">Premium</a></li>
+        <li><a class="main-nav-link sign-in-out" href="#cta">Sign in</a></li>
+      </ul>
+    </nav>
+    <div class="user"></div>
+  </header>
+</body>
+
 </html>
