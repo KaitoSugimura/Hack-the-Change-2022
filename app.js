@@ -9,6 +9,8 @@ const userEl = document.querySelector(".user");
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
+const db = getFirestore(firebase);
+
 signInOutBtn.onclick = () => {
   if (!auth.currentUser) {
     signInWithPopup(auth, provider);
@@ -22,19 +24,19 @@ signInOutBtn.onclick = () => {
 auth.onAuthStateChanged(user => {
   if (user) {
     console.log("logged in");
-    signInOutBtn.innerHTML = "Sign Out"
+    signInOutBtn.innerHTML = "Sign out"
     userEl.innerHTML = `
     <h3>Hello, ${user.displayName}.</h3> 
     <img src="${user.photoURL}" alt="User Profile Picture">
     `;
   } else {
     console.log("logged out");
-    signInOutBtn.innerHTML = "Sign In"
+    signInOutBtn.innerHTML = "Sign in"
     userEl.innerHTML = "";
   }
 })
 
-// Retrieve 
+// Retrieve user data
 auth.onAuthStateChanged(async user => {
   if (user) {
     const userRef = doc(db, "users", user.uid);
@@ -42,40 +44,21 @@ auth.onAuthStateChanged(async user => {
 
     if (docSnap.exists()) {
       console.log("user found");
+      newUser(user);
     } else {
       console.log("user not found, added");
-      await setDoc(doc(db, "users", user.uid), {
-        avatar: "placeholder",
-      });
+      newUser(user);
     }
   } else {
   }
 })
 
-const db = getFirestore(firebase);
-
-auth.onAuthStateChanged(user => {
-  if (user) {
-    // thingsRef = collection(db, 'things');
-
-    // createThing.onclick = () => {
-    //   addDoc(thingsRef, {
-    //     uid: user.uid,
-    //     name: faker.commerce.productName(),
-    //     createdAt: Timestamp.now(),
-    //   });
-    // }
-
-    // const q = query(thingsRef, where('uid', '==', user.uid), orderBy('createdAt', 'desc'));
-    // unsubscribe = onSnapshot(q, querySnapshot => {
-    //   const items = querySnapshot.docs.map(doc => {
-    //     return `<li>${doc.data().name}</li>`
-    //   });
-
-    //   thingsList.innerHTML = items.join('');
-    // })
-
-  } else {
-    // unsubscribe && unsubscribe();
-  }
-})
+async function newUser(user) {
+  await setDoc(doc(db, "users", user.uid), {
+    avatar: "avatar stuff here",
+    pets: [
+      "dog",
+      "cat",
+    ],
+  });
+}

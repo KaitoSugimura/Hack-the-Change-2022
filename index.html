@@ -6,6 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <script type="module" src="./firebase.js"></script>
+  <script type="module" src="./app.js"></script>
+
   <!-- CSS -->
   <link rel="stylesheet" href="css/style.css" />
 
@@ -24,9 +27,10 @@
           </a>
         </div>
         <div class="nav-pls">
-          <a class="main-nav-link">Profile</a>
-          <a class="main-nav-link">Login</a>
-          <a class="main-nav-link nav-cta">Sign up</a>
+          <div class="user"></div>
+          <a class="main-nav-link profile">Profile</a>
+          <a class="main-nav-link sign-in-out">Login</a>
+          <!-- <a class="main-nav-link nav-cta sign-in-out">Sign up</a> -->
         </div>
       </div>
     </nav>
