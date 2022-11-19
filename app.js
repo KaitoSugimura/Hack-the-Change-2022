@@ -11,6 +11,7 @@ const provider = new GoogleAuthProvider();
 
 const db = getFirestore(firebase);
 
+// Logic for sign in/out button
 signInOutBtn.onclick = () => {
   if (!auth.currentUser) {
     signInWithPopup(auth, provider);
