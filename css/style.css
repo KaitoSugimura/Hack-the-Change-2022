@@ -1,0 +1,17 @@
+.main-nav{
+    width: 110rem;
+    margin: 0 auto;
+}
+
+.main-nav-list{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 3rem;
+}
+
+.main-nav-link{
+    padding: 4rem 1rem;
+    cursor: pointer;
+    font-size: 1.4rem;
+}
