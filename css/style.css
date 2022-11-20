@@ -45,17 +45,30 @@ header {
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   height: 6rem;
+  color: #7048e8;
 }
 
-.nav-donations{
+.main-nav-link:link,
+.main-nav-link:visited {
+  color: black;
+}
+
+.main-nav-link:link.main-nav-link:hover,
+.main-nav-link:link.main-nav-link:active,
+.main-nav-link:visited.main-nav-link:hover,
+.main-nav-link:visited.main-nav-link:active {
+  color: #ae3ec9;
+}
+
+.nav-donations {
   justify-self: start;
 }
 
-.nav-home{
+.nav-home {
   justify-self: center;
 }
 
-.nav-pls{
+.nav-pls {
   justify-self: end;
 }
 
@@ -65,8 +78,16 @@ header {
   font-size: 2rem;
 }
 
-.logo{
+.logo {
   height: 6rem;
+}
+
+.sign-in-out {
+  background-color: #9775fa;
+  color: white;
+  border: 0.3rem solid #333;
+  border-radius: 1rem;
+  margin-left: 1.4rem;
 }
 
 /* main ******************  ******************  ****************** */
@@ -84,7 +105,7 @@ header {
 #Hero1,
 #Hero2,
 #Hero3,
-#Hero4{
+#Hero4 {
   transition: 0.5s all;
 }
 
@@ -204,85 +225,84 @@ header {
   z-index: 1;
 }
 
-.info-img{
+.info-img {
   width: 100%;
   border-radius: 2rem;
 }
 
-.info-div{
+.info-div {
   height: fit-content;
   align-self: center;
 }
 
-.info-header{
+.info-header {
   font-size: 4.8rem;
   line-height: 1.2;
   margin-bottom: 2rem;
 }
 
-.info-p{
+.info-p {
   font-size: 2.4rem;
   line-height: 1.5;
 }
 
 /* footer ******************  ****************** */
 
-.footer{
+.footer {
   position: relative;
   padding: 12.8rem 0;
   border-top: 1px solid #eee;
 }
 
-.grid-footer{
+.grid-footer {
   display: grid;
   grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr;
-
 }
 
-.logo-col{
+.logo-col {
   display: flex;
   flex-direction: column;
 }
 
-.footer-logo{
+.footer-logo {
   display: block;
   margin-bottom: 2.4rem;
 }
 
-.social-links{
+.social-links {
   list-style: none;
   display: flex;
   gap: 2rem;
 }
 
-.social-icon{
+.social-icon {
   height: 2.4rem;
   width: 2.4rem;
 }
 
-.legal{
+.legal {
   font-size: 1.4rem;
   line-height: 2.5;
   color: #767676;
 }
 
-.footer-heading{
+.footer-heading {
   font-size: 1.8rem;
   font-weight: 500;
   margin-bottom: 4rem;
 }
 
-.contacts{
+.contacts {
   font-style: normal;
   font-size: 1.6rem;
   line-height: 1.6;
 }
 
-.address{
+.address {
   margin-bottom: 2.4rem;
 }
 
-.footer-nav{
+.footer-nav {
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -290,7 +310,7 @@ header {
 }
 
 .footer-link:link,
-.footer-link:visited{
+.footer-link:visited {
   text-decoration: none;
   font-size: 1.6rem;
   color: #767676;
@@ -298,11 +318,11 @@ header {
 }
 
 .footer-link:hover,
-.footer-link:active{
+.footer-link:active {
   color: #555;
 }
 
-.made-by{
+.made-by {
   position: absolute;
   bottom: 3.6rem;
   left: 50%;
