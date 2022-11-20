@@ -52,7 +52,20 @@ auth.onAuthStateChanged(async user => {
 async function newUser(user) {
   await setDoc(doc(db, "users", user.uid), {
     capybaras: 3,
+    pandas: 0,
   });
+}
+
+// Returns pets owned by user
+async function getPets(user) {
+  const userRef = doc(db, "users", user.uid);
+  const docSnap = await getDoc(userRef);
+
+  if (docSnap.exists()) {
+    return docSnap.data();
+  } else {
+    console.log("couldn't get pets - user doesn't exist in database!");
+  }
 }
 
 // Returns up to n thank-yous for user
