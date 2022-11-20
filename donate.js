@@ -65,7 +65,7 @@ async function populateCharities(searchTerm) {
       const amount = child.querySelector(".charity-amount").value;
       console.log(amount);
       if (amount > 0) {
-        donate(charities[i].ein, auth.currentUser.uid, Number(amount), charities[i++].name);
+        // donate(charities[i].ein, auth.currentUser.uid, Number(amount), charities[i++].name);
       }
       child.querySelector(".charity-amount").value = null;
     };
