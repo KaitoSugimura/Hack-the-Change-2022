@@ -1,14 +1,15 @@
 import { firebase } from "./firebase.js";
 import { getAuth, signInWithPopup, signOut, GoogleAuthProvider, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js"
-import { getFirestore, collection, doc, getDoc, addDoc, setDoc, Timestamp, query, where, onSnapshot, orderBy } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
-import { faker } from 'https://cdn.skypack.dev/@faker-js/faker';
+import { getFirestore, collection, doc, getDoc, addDoc, setDoc, getDocs, Timestamp, query, where, onSnapshot, orderBy } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
 
+// DOM references
 const signInOutBtn = document.querySelector(".sign-in-out");
-const userEl = document.querySelector(".user");
 
+// Auth
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
+// DB
 const db = getFirestore(firebase);
 
 // Logic for sign in/out button
@@ -26,14 +27,9 @@ auth.onAuthStateChanged(user => {
   if (user) {
     console.log("logged in");
     signInOutBtn.innerHTML = "Sign out"
-    userEl.innerHTML = `
-    <h3>Hello, ${user.displayName}.</h3> 
-    <img src="${user.photoURL}" alt="User Profile Picture">
-    `;
   } else {
     console.log("logged out");
     signInOutBtn.innerHTML = "Sign in"
-    userEl.innerHTML = "";
   }
 })
 
@@ -45,15 +41,16 @@ auth.onAuthStateChanged(async user => {
 
     if (docSnap.exists()) {
       console.log("user found");
-      newUser(user);
+      // getThankYou(user, 2);
+      // getPersonalThankYous(user);
     } else {
       console.log("user not found, added");
       newUser(user);
     }
-  } else {
   }
 })
 
+// Creates entry for new user
 async function newUser(user) {
   await setDoc(doc(db, "users", user.uid), {
     avatar: "avatar stuff here",
@@ -61,5 +58,46 @@ async function newUser(user) {
       "dog",
       "cat",
     ],
+    donatedTo: [
+      "311811917",
+      "454903635",
+    ]
   });
+}
+
+// Returns up to n thank-yous for user
+async function getThankYou(user, n) {
+  const qSnap = await getCharitiesDonatedTo(user);
+
+  let thankYous = [];
+  qSnap.forEach(charity => {
+    const comments = charity.data().comments;
+    if (comments.length > 0) {
+      thankYous.push(charity.data().comments[0]);
+    }
+  })
+
+  return thankYous.slice(0, n);
+}
+
+// Returns up to n personal thank-yous for user
+async function getPersonalThankYous(user, n) {
+  const thankYousRef = collection(db, "personalThankYous");
+  const q = query(thankYousRef, where("to", "==", user.uid));
+  const qSnap = await getDocs(thankYousRef);
+
+  const thankYous = [];
+  qSnap.forEach(thankYou => {
+    thankYous.push(thankYou.data());
+  })
+
+  return thankYous.slice(0, n);
+}
+
+// Returns charities that user donated to
+async function getCharitiesDonatedTo(user) {
+  const charitiesRef = collection(db, "charities");
+  const q = query(charitiesRef, where("subscribers", "array-contains", user.uid));
+  const qSnap = await getDocs(q);
+  return qSnap;
 }
