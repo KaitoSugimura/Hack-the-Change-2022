@@ -28,9 +28,7 @@ auth.onAuthStateChanged(async user => {
     console.log("logged in");
     signInOutBtn.innerHTML = "Sign out"
     signInOutBtn.style.backgroundColor = "#d6336c";
-    console.log(await getUserData(auth.currentUser));
-    console.log(await getThankYou(auth.currentUser, 5));
-    console.log(await getPersonalThankYous(auth.currentUser, 5));
+    console.log(await getUserData(user));
   } else {
     console.log("logged out");
     signInOutBtn.innerHTML = "Sign in"
@@ -96,9 +94,9 @@ export async function getThankYou(user, n) {
 
   let thankYous = [];
   qSnap.forEach(charity => {
-    const comments = charity.comments;
+    const comments = charity.data().comments;
     if (comments.length > 0) {
-      thankYous.push(charity.comments[0]);
+      thankYous.push(charity.data().comments[0]);
     }
   })
 
@@ -124,7 +122,7 @@ export async function getCharitiesDonatedTo(user) {
   const charitiesRef = collection(db, "charities");
   const q = query(charitiesRef, where("subscribers", "array-contains", user.uid));
   const qSnap = await getDocs(q);
-  return qSnap.data;
+  return qSnap;
 }
 
 // Returns user information
