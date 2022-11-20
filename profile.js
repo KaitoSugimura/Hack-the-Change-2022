@@ -25,14 +25,14 @@ function set_profile(){
 
 function unfold_profile(){
     let profile = document.querySelector(".profile");
-    if(profile.style.width == "80%"){
+    if(profile.lastElementChild.className != "profileimage"){
         profile.style.width ="fit-content";
         for(let i =0;i<userData.length;i++){
             profile.removeChild(profile.lastElementChild);
         }
     }
     else{
-        profile.style.width = "80%";
+        profile.style.width = "fit-content";
         for(let i =0; i<userData.length;i++){
             let newInfo = document.createElement('div');
             newInfo.className = "userInfo";
@@ -49,7 +49,7 @@ function put_capybara(){
         var newCapy = document.createElement('div');
         newCapy.className = "innerImage";
         var image = document.createElement('img');
-        image.src = animalImages[Math.floor((Math.random()*animalImages.length))];
+        image.src = animalImages[i];
         newCapy.appendChild(image);
         canvas.appendChild(newCapy);
     }
