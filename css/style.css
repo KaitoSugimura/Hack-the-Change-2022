@@ -222,13 +222,13 @@ header {
 
 .footer-logo{
   display: block;
-  margin-bottom: 3.2rem;
+  margin-bottom: 2.4rem;
 }
 
 .social-links{
   list-style: none;
   display: flex;
-  gap: 2.4rem;
+  gap: 2rem;
 }
 
 .social-icon{
@@ -238,7 +238,7 @@ header {
 
 .legal{
   font-size: 1.4rem;
-  line-height: 1.6;
+  line-height: 2.5;
   color: #767676;
 }
 
