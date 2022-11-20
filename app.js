@@ -143,6 +143,6 @@ export async function getUserData(user) {
   }
 }
 
-export async function getCurrentUser(){
+export async function getCurrentUser() {
   return auth.currentUser;
 }
