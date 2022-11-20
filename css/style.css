@@ -64,25 +64,36 @@ header {
 }
 
 .hero-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: flex;
+  /* grid-template-columns: 1fr 1fr 1fr 1fr; */
   z-index: -99;
+}
+
+#Hero1,
+#Hero2,
+#Hero3,
+#Hero4{
   transition: 0.5s all;
 }
 
-.hero-inner:has(#Hero1:hover) {
+/* .hero-inner:has(#Hero1:hover) {
   grid-template-columns: 2fr 1fr 1fr 1fr;
+} */
+
+#Hero1:hover,
+#Hero2:hover,
+#Hero3:hover,
+#Hero4:hover {
+  width: 180%;
 }
 
-.hero-inner:has(#Hero2:hover) {
-  grid-template-columns: 1fr 2fr 1fr 1fr;
-}
-.hero-inner:has(#Hero3:hover) {
+/* .hero .hero-inner:has(#Hero3:hover) {
   grid-template-columns: 1fr 1fr 2fr 1fr;
 }
+
 .hero-inner:has(#Hero4:hover) {
   grid-template-columns: 1fr 1fr 1fr 2fr;
-}
+} */
 
 #Hero1 {
   background-image: linear-gradient(
