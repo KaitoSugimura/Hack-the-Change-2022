@@ -4,7 +4,7 @@ const NAME = document.getElementById("NAME");
 const EMAIL = document.getElementById("EMAIL");
 const HISTORY = document.getElementById("HISTORY");
 
-// NAME.innerHTML = 
+NAME.innerHTML = getUserData(getCurrentUser());
 // HISTORY.innerHTML = getCharitiesDonatedTo(auth.currentUser);
 
 // console.log(async getCharitiesDonatedTo(auth.currentUser));
