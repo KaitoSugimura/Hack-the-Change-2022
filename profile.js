@@ -1,5 +1,5 @@
 //Varaibles
-let animalImages = ["images/capybara.gif","images/panda.gif"];
+let animalImages = ["images/capybara.gif","images/panda.gif","images/frog.gif"];
 
 function set_canvas(){
     let canvas = document.querySelector('.canvas');
@@ -9,7 +9,7 @@ function set_canvas(){
 
 function put_capybara(){
     let canvas = document.querySelector('.animalContainer');
-    for(let i =0; i < 12;i++){
+    for(let i =0; i < 6;i++){
         var newCapy = document.createElement('div');
         newCapy.className = "innerImage";
         var image = document.createElement('img');
