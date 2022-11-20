@@ -1,4 +1,4 @@
-import { getUserData } from "./app.js";
+import { getCurrentUser, getUserData, getCharitiesDonatedTo } from "./app.js";
 
 const NAME = document.getElementById("NAME");
 const EMAIL = document.getElementById("EMAIL");
