@@ -5,9 +5,7 @@ function set_canvas(){
 }
 
 function put_capybara(){
-    let bottom = 1+"px";
-    let right = 0;
-    let canvas = document.querySelector('.canvas');
+    let canvas = document.querySelector('.animalContainer');
     for(let i =0; i < 12;i++){
         var newCapy = document.createElement('div');
         newCapy.className = "innerImage";
@@ -15,10 +13,7 @@ function put_capybara(){
         image.src = "images/capybara.gif"; 
         newCapy.appendChild(image);
         canvas.appendChild(newCapy);
-        newCapy.style.bottom = bottom;
-        newCapy.style.right = right+"px";
-        right += newCapy.offsetWidth;
-        console.log(right)
+        console.log("new cappy created!")
     }
 }
 
