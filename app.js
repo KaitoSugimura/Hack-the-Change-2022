@@ -23,7 +23,7 @@ signInOutBtn.onclick = () => {
 }
 
 // Handle login/logout logic
-auth.onAuthStateChanged(user => {
+auth.onAuthStateChanged(async user => {
   if (user) {
     console.log("logged in");
     signInOutBtn.innerHTML = "Sign out"
@@ -33,7 +33,7 @@ auth.onAuthStateChanged(user => {
   }
 })
 
-// Retrieve user data
+// Add user to databse if new
 auth.onAuthStateChanged(async user => {
   if (user) {
     const userRef = doc(db, "users", user.uid);
@@ -41,8 +41,6 @@ auth.onAuthStateChanged(async user => {
 
     if (docSnap.exists()) {
       console.log("user found");
-      // getThankYou(user, 2);
-      // getPersonalThankYous(user);
     } else {
       console.log("user not found, added");
       newUser(user);
@@ -50,18 +48,10 @@ auth.onAuthStateChanged(async user => {
   }
 })
 
-// Creates entry for new user
+// Creates databse entry for new user
 async function newUser(user) {
   await setDoc(doc(db, "users", user.uid), {
-    avatar: "avatar stuff here",
-    pets: [
-      "dog",
-      "cat",
-    ],
-    donatedTo: [
-      "311811917",
-      "454903635",
-    ]
+    capybaras: 3,
   });
 }
 

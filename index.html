@@ -1,96 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/style.css" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
 
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap" rel="stylesheet" />
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- JS -->
-  <script defer type="module" src="firebase.js"></script>
-  <script defer type="module" src="app.js"></script>
-  <script defer type="module" src="donate.js"></script>
+    <!-- JS -->
+    <script defer src="donate.js"></script>
 
-  <title>Document</title>
-</head>
-
-<body>
-  <div class="background"></div>
-  <!-- HEADER -------------------------------------------------------------->
-  <header class="header">
-    <nav class="main-nav">
-      <div class="main-nav-list container">
-        <div class="nav-donations">
-          <a class="main-nav-link">Donate</a>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="background"></div>
+    <!-- HEADER -------------------------------------------------------------->
+    <header class="header">
+      <nav class="main-nav">
+        <div class="main-nav-list container">
+          <div class="nav-donations">
+            <a class="main-nav-link">Donate</a>
+          </div>
+          <div class="nav-home">
+            <a href="index.html">
+              <img class="logo" alt="Logo" src="img/Lilac_Logo.png" />
+            </a>
+          </div>
+          <div class="nav-pls">
+            <a class="main-nav-link" href="profile.html">Profile</a>
+            <a class="main-nav-link">Login</a>
+            <a class="main-nav-link nav-cta">Sign up</a>
+          </div>
         </div>
-        <div class="nav-home">
-          <a href="#">
-            <img class="logo" alt="Logo" src="." />
+      </nav>
+      <!-- END of HEADER -->
+    </header>
+
+    <main>
+      <!-- HERO -------------------------------------------------------------->
+      <section class="hero">
+        <div class="hero-inner">
+          <div class="hero-img" id="Hero1"></div>
+          <div class="hero-img" id="Hero2"></div>
+          <div class="hero-img" id="Hero3"></div>
+          <div class="hero-img" id="Hero4"></div>
+        </div>
+        <h1 class="main-heading">A world plentiful of smiles</h1>
+      </section>
+      <!-- END of HERO -->
+
+      <section class="main-info">
+        <div class="container grid-2col">
+          <!-- 1 -->
+          <img
+            class="info-img"
+            alt="Person giving tomatos"
+            src="img/Donate.jpg"
+          />
+          <div class="info-div">
+            <h2 class="info-header">Browse charities</h2>
+            <p class="info-p">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi
+              ducimus velit quisquam corporis tenetur voluptate impedit!
+            </p>
+          </div>
+          <!-- 2 -->
+          <div class="info-div">
+            <h2 class="info-header">Donate</h2>
+            <p class="info-p">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi
+              ducimus velit quisquam corporis tenetur voluptate impedit!
+            </p>
+          </div>
+          <img
+            class="info-img"
+            alt="Person giving tomatos"
+            src="img/Donate.jpg"
+          />
+          <!-- 3 -->
+          <img
+            class="info-img"
+            alt="Person giving tomatos"
+            src="img/Donate.jpg"
+          />
+          <div class="info-div">
+            <h2 class="info-header">See the impact you've made!</h2>
+            <p class="info-p">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi
+              ducimus velit quisquam corporis tenetur voluptate impedit!
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -------------------------------------------------------------->
+    <footer class="footer">
+      <div class="container grid-footer">
+        <div class="logo-col">
+          <a href="index.html" class="footer-logo">
+            <img class="logo" alt="Lilic logo" src="img/Lilac_Logo.png" />
           </a>
+
+          <ul class="social-links">
+            <li>
+              <a class="footer-link" href="#"
+                ><ion-icon class="social-icon" name="logo-instagram"></ion-icon
+              ></a>
+            </li>
+            <li>
+              <a class="footer-link" href="#"
+                ><ion-icon class="social-icon" name="logo-facebook"></ion-icon
+              ></a>
+            </li>
+            <li>
+              <a class="footer-link" href="#"
+                ><ion-icon class="social-icon" name="logo-twitter"></ion-icon
+              ></a>
+            </li>
+          </ul>
+
+          <div class="legal">
+            <a href="">Legal</a> | <a href="">Contact us</a>
+          </div>
         </div>
-        <div class="nav-pls">
-          <a class="main-nav-link" href="profile.html">Profile</a>
-          <a class="main-nav-link sign-in-out">Sign In</a>
-          <!-- <a class="main-nav-link nav-cta">Sign up</a> -->
+        <div class="address-col">
+          <p class="footer-heading">Contact us</p>
+          <address class="contacts">
+            <p class="address">
+              Abc Defghijk. 12345 hi hello, <br> Calgary, AB Canada. 
+            </p>
+            <a class="footer-link" href="tel:415-201-6370">123-456-7890</a><br />
+            <a class="footer-link" href="mailto:hello@omnifood.com"
+              >info@lilac.com</a
+            >
+          </address>
+        </div>
+
+        <div class="nav-col">
+          <p class="footer-heading">Home</p>
+          <ul class="footer-nav">
+            <li><a class="footer-link" href="#">Create account</a></li>
+            <li><a class="footer-link" href="#">Sign in</a></li>
+            <li><a class="footer-link" href="#">Research and reports</a></li>
+            <li><a class="footer-link" href="#">Take action</a></li>
+          </ul>
+        </div>
+        <div class="nav-col">
+          <p class="footer-heading">About</p>
+          <ul class="footer-nav">
+            <li><a class="footer-link" href="#">FAQ</a></li>
+            <li><a class="footer-link" href="#">Partner with Lilac</a></li>
+            <li><a class="footer-link" href="#">Work with Lilac</a></li>
+            <li><a class="footer-link" href="#">Goals</a></li>
+          </ul>
+        </div>
+        <div class="nav-col">
+          <p class="footer-heading">Resources</p>
+          <ul class="footer-nav">
+            <li><a class="footer-link" href="https://unsplash.com/">Unsplash</a></li>
+            <li><a class="footer-link" href="#">Help center</a></li>
+            <li><a class="footer-link" href="#">Privacy & terms</a></li>
+          </ul>
         </div>
       </div>
-    </nav>
-    <!-- END of HEADER -->
-  </header>
-
-  <main>
-    <!-- HERO -------------------------------------------------------------->
-    <section class="hero">
-      <div class="hero-inner">
-        <div class="hero-img" id="Hero1"></div>
-        <div class="hero-img" id="Hero2"></div>
-        <div class="hero-img" id="Hero3"></div>
-        <div class="hero-img" id="Hero4"></div>
-      </div>
-      <h1 class="main-heading">A world plentiful of smiles</h1>
-    </section>
-    <!-- END of HERO -->
-
-    <section class="main-info">
-      <div class="container grid-2col">
-        <!-- 1 -->
-        <img class="info-img" alt="Person giving tomatos" src="img/Donate.jpg" />
-        <div class="info-div">
-          <h2 class="info-header">Browse charities</h2>
-          <p class="info-p">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi
-            ducimus velit quisquam corporis tenetur voluptate impedit!
-          </p>
-        </div>
-        <!-- 2 -->
-        <div class="info-div">
-          <h2 class="info-header">Donate</h2>
-          <p class="info-p">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi
-            ducimus velit quisquam corporis tenetur voluptate impedit!
-          </p>
-        </div>
-        <img class="info-img" alt="Person giving tomatos" src="img/Donate.jpg" />
-        <!-- 3 -->
-        <img class="info-img" alt="Person giving tomatos" src="img/Donate.jpg" />
-        <div class="info-div">
-          <h2 class="info-header">See the impact you've made!</h2>
-          <p class="info-p">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi
-            ducimus velit quisquam corporis tenetur voluptate impedit!
-          </p>
-        </div>
-      </div>
-    </section>
-  </main>
-</body>
-
+    </footer>
+  </body>
 </html>
