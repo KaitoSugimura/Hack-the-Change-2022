@@ -1,3 +1,6 @@
+//Varaibles
+let animalImages = ["images/capybara.gif","images/panda.gif"];
+
 function set_canvas(){
     let canvas = document.querySelector('.canvas');
     canvas.style.height = window.innerHeight - canvas.offsetTop+'px'
@@ -10,10 +13,9 @@ function put_capybara(){
         var newCapy = document.createElement('div');
         newCapy.className = "innerImage";
         var image = document.createElement('img');
-        image.src = "images/capybara.gif"; 
+        image.src = animalImages[Math.floor((Math.random()*animalImages.length))];
         newCapy.appendChild(image);
         canvas.appendChild(newCapy);
-        console.log("new cappy created!")
     }
 }
 
