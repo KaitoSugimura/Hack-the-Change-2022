@@ -27,9 +27,11 @@ auth.onAuthStateChanged(async user => {
   if (user) {
     console.log("logged in");
     signInOutBtn.innerHTML = "Sign out"
+    signInOutBtn.style.backgroundColor = "#d6336c";
   } else {
     console.log("logged out");
     signInOutBtn.innerHTML = "Sign in"
+    signInOutBtn.style.backgroundColor = "#9775fa";
   }
 })
 
