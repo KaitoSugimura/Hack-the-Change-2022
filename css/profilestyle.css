@@ -44,5 +44,16 @@ img{
     width: fit-content;
     background-color: white;
     border-radius: 50px;
-    border: solid black;
 }
+.userInfo{
+    margin: 5px;
+    display: flex;
+    height: 80%;
+    background-color: white;
+    border-radius: 50px;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+
+}
+
