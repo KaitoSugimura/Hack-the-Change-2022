@@ -86,8 +86,8 @@ header {
 #Hero1 {
   background-image: linear-gradient(
       to right bottom,
-      rgba(236, 166, 106, 0.2),
-      rgba(215, 135, 65, 0.2)
+      rgba(236, 166, 106, 0.17),
+      rgba(215, 135, 65, 0.17)
     ),
     url("../img/Hero.jpg");
 }
@@ -95,8 +95,8 @@ header {
 #Hero2 {
   background-image: linear-gradient(
       to right bottom,
-      rgba(236, 166, 106, 0.2),
-      rgba(215, 135, 65, 0.2)
+      rgba(236, 166, 106, 0.17),
+      rgba(215, 135, 65, 0.17)
     ),
     url("../img/Hero2.jpg");
 }
@@ -104,8 +104,8 @@ header {
 #Hero3 {
   background-image: linear-gradient(
       to right bottom,
-      rgba(236, 166, 106, 0.2),
-      rgba(215, 135, 65, 0.2)
+      rgba(236, 166, 106, 0.17),
+      rgba(215, 135, 65, 0.17)
     ),
     url("../img/Hero3.jpg");
 }
@@ -113,8 +113,8 @@ header {
 #Hero4 {
   background-image: linear-gradient(
       to right bottom,
-      rgba(236, 166, 106, 0.2),
-      rgba(215, 135, 65, 0.2)
+      rgba(236, 166, 106, 0.17),
+      rgba(215, 135, 65, 0.17)
     ),
     url("../img/Hero4.jpg");
 }
@@ -125,9 +125,10 @@ header {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 6.8rem;
+  font-size: 9.6rem;
   color: #fff;
   pointer-events: none;
+  text-shadow: 0rem 0rem 1rem rgb(68, 42, 19);
 }
 
 .hero-img {
@@ -238,7 +239,6 @@ header {
   font-size: 1.4rem;
   line-height: 1.6;
   color: #767676;
-  margin-top: auto;
 }
 
 .footer-heading{

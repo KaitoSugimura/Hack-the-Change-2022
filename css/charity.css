@@ -1,0 +1,69 @@
+.charities {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.charity-container {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    overflow: hidden;
+    width: 25rem;
+}
+
+.charity-imageContainer {
+    aspect-ratio: 460/215;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.charity-image {
+    width: 100%;
+    transition: scale 0.2s;
+}
+
+.charity-container:hover .charity-image {
+    scale: 1.05;
+}
+
+.charity-info {
+    padding: 1rem;
+}
+
+.charity-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.charity-description {
+    margin-top: 0.5rem;
+    line-height: 1.4;
+    color: lightgray;
+}
+
+.charity-price {
+    text-align: right;
+    display: block;
+}
+
+.charity-addToCart {
+    margin-top: 1.5rem;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-decoration: none;
+    padding: 1rem;
+    border-radius: 999rem;
+    border: none;
+    outline: 1px solid transparent;
+    transition: outline-color var(--transition-time);
+    cursor: pointer;
+}
+
+.charity-addToCart:hover {
+    outline: 1px solid white;
+}
