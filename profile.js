@@ -1,5 +1,5 @@
 //Varaibles
-let animalImages = ["images/capybara.gif","images/panda.gif","images/frog.gif","images/wolf.gif","images/pig.gif"];
+let animalImages = ["images/capybara.gif","images/panda.gif","images/frog.gif","images/wolf.gif","images/pig.gif","images/Tiger.gif"];
 
 function set_canvas(){
     let canvas = document.querySelector('.canvas');
