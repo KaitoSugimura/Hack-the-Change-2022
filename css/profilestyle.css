@@ -25,6 +25,26 @@ img{
     left: 0;
 }
 
+.commentText{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+}
+
+.comment{
+    position: relative;
+}
+
+.commentContainer{
+    display: flex;
+    width: 82%;
+    height: 20%;
+    justify-content: center;
+    position: absolute;
+    left: 16%;
+    top: 50%;
+}
+
 .profile{
     display: flex;
     align-items: center;
@@ -55,6 +75,5 @@ img{
     justify-content: center;
     align-items: center;
     padding: 5px;
-
 }
 

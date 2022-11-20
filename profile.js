@@ -8,19 +8,32 @@ function set_userData(){
     userData.push("Name: Joshua Walters");
     userData.push("Total Donations: 100000$");
     userData.push("Favorite Charity: WWF");
-    userData.push("Tier; Capybara");
+    userData.push("Tier: Capybara");
     console.log(userData)
 }
 
 function set_canvas(){
     let canvas = document.querySelector('.canvas');
     canvas.style.height = window.innerHeight - canvas.offsetTop+'px'
-    console.log("Hello World!")
 }
 
 function set_profile(){
     let profile = document.querySelector(".profile");
     profile.offsetTop = document.querySelector('.canvas').offsetTop;
+}
+
+function add_comment(){
+    let commentBox = document.querySelector(".commentContainer");
+    let comment = document.createElement('div')
+    comment.className = "comment"
+    let image = document.createElement('img');
+    let text = document.createElement('div');
+    text.className = "commentText";
+    text.textContent = "Thank you for helping me I really appreciate it and I am so grateful for the help that I appreciated";
+    image.src = "images/speechbubble.png.png";
+    commentBox.appendChild(comment);
+    comment.appendChild(text);
+    comment.appendChild(image);
 }
 
 function unfold_profile(){
@@ -52,6 +65,7 @@ function put_capybara(){
         image.src = animalImages[i];
         newCapy.appendChild(image);
         canvas.appendChild(newCapy);
+        add_comment();
     }
 }
 
@@ -62,4 +76,5 @@ set_canvas();
 set_profile();
 set_userData()
 put_capybara();
+
 
