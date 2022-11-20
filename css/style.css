@@ -37,6 +37,7 @@ header {
   background-color: #fbf0ff;
   z-index: 100;
   justify-content: space-evenly;
+  box-shadow: 0rem 0.5rem 1rem #3d393e27;
 }
 
 .main-nav-list {
