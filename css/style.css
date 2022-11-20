@@ -41,10 +41,22 @@ header {
 }
 
 .main-nav-list {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  justify-content: space-between;
   height: 6rem;
+}
+
+.nav-donations{
+  justify-self: start;
+}
+
+.nav-home{
+  justify-self: center;
+}
+
+.nav-pls{
+  justify-self: end;
 }
 
 .main-nav-link {
@@ -175,20 +187,20 @@ header {
   height: 45px;
   background-image: url("https://ecorelos.com/wp-content/uploads/2020/04/torn-border2.png");
   position: absolute;
-  width: 300%;
+  width: 100%;
   top: -4.5rem;
-  left: -500px;
+  left: 0;
 }
 
 .main-info:after {
   content: " ";
   display: block;
-  width: 300%;
+  width: 100%;
   height: 65px;
   background-image: url("https://ecorelos.com/wp-content/uploads/2020/04/torn-border2upside.png");
   position: absolute;
   bottom: -4.5rem;
-  left: -500px;
+  left: 0;
   z-index: 1;
 }
 
