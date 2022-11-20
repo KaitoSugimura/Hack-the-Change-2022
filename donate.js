@@ -50,7 +50,7 @@ async function populateCharities(searchTerm) {
       }</p >
         <div class="charity-payment">
         <button class="charity-addToCart" type="button">Donate</button>
-        <input class="charity-amount" type="number" name="" id="">
+        <input class="charity-amount" type="number" name="" id="" placeholder="Enter amount">
         </div>
       </div>
     </div>`
@@ -65,7 +65,12 @@ async function populateCharities(searchTerm) {
       const amount = child.querySelector(".charity-amount").value;
       console.log(amount);
       if (amount > 0) {
-        // donate(charities[i].ein, auth.currentUser.uid, Number(amount), charities[i++].name);
+        donate(charities[i].ein, auth.currentUser.uid, Number(amount), charities[i++].name);
+        child.querySelector(".charity-amount").placeholder = "Thank you!";
+        child.querySelector(".charity-amount").style = "border: 1px solid green";
+      } else {
+        child.querySelector(".charity-amount").placeholder = "Enter an amount.";
+        child.querySelector(".charity-amount").style = "border: 1px solid red";
       }
       child.querySelector(".charity-amount").value = null;
     };

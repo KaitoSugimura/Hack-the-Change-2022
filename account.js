@@ -21,6 +21,7 @@ auth.onAuthStateChanged(async user => {
   } else {
     NAME.innerHTML = '';
     EMAIL.innerHTML = '';
+    HISTORY.innerHTML = '';
   }
 })
 // HISTORY.innerHTML = getCharitiesDonatedTo(auth.currentUser);
