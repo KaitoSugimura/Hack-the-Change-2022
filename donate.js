@@ -20,6 +20,9 @@ import {
   orderBy,
 } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
 
+const NoDonationsFound = document.querySelector(".No-donations-found");
+const loading = document.querySelector(".loading-message");
+
 // Auth
 const auth = getAuth();
 
@@ -43,9 +46,8 @@ async function populateCharities(searchTerm) {
     <div class="charity-container">
       <div class="charity-info">
         <span class="charity-title">${charity.name}</span>
-        <p class="charity-description">${
-          charity.tagLine ?? "[No description]"
-        }</p >
+        <p class="charity-description">${charity.tagLine ?? "[No description]"
+      }</p >
         <div class="charity-payment">
         <button class="charity-addToCart" type="button">Donate</button>
         <input class="charity-amount" type="number" name="" id="">
@@ -62,13 +64,14 @@ async function populateCharities(searchTerm) {
     button.onclick = () => {
       const amount = child.querySelector(".charity-amount").value;
       console.log(amount);
-      addDonator(charities[i++].ein, auth.currentUser.uid, amount);
+      if (amount > 0) {
+        donate(charities[i].ein, auth.currentUser.uid, Number(amount), charities[i++].name);
+      }
+      child.querySelector(".charity-amount").value = null;
     };
   }
 }
 
-const NoDonationsFound = document.querySelector(".No-donations-found");
-const loading = document.querySelector(".loading-message");
 // Returns an array of info for the top 5 charities relevant to searchTerm
 export async function getCharities(searchTerm) {
   NoDonationsFound.classList.remove("Display-NMF");
@@ -76,18 +79,17 @@ export async function getCharities(searchTerm) {
   console.log(`search for ${searchTerm?.replace(/ /g, "%20")}`);
 
   const response = await fetch(
-    `https://api.data.charitynavigator.org/v2/Organizations?app_id=82ee3118&app_key=9299ff0993ecbf62a5a18c8c4e8ae23c&pageSize=30&rated=true&search=${
-      searchTerm?.replace(/ /g, "%20") ?? ""
+    `https://api.data.charitynavigator.org/v2/Organizations?app_id=82ee3118&app_key=9299ff0993ecbf62a5a18c8c4e8ae23c&pageSize=30&rated=true&search=${searchTerm?.replace(/ /g, "%20") ?? ""
     }&searchType=NAME_ONLY`
   );
   const json = await response.json();
 
   var charities;
 
-  if(json.errorMessage){
+  if (json.errorMessage) {
     console.log("ERROR");
     NoDonationsFound.classList.add("Display-NMF");
-  } else{
+  } else {
     charities = await Promise.all(
       json.map(async (charity) => ({
         name: charity.charityName,
@@ -95,14 +97,14 @@ export async function getCharities(searchTerm) {
         url: charity.charityNavigatorURL,
         ein: charity.ein,
         // score: charity.currentRating.score,
-        // comments: await getCharityComments(charity.ein, charity.charityName),
+        comments: await getCharityComments(charity.ein, charity.charityName),
       }))
     );
   }
-  
+
 
   loading.classList.remove("Display-NMF");
-  
+
   return charities;
 }
 
@@ -123,8 +125,8 @@ export async function getCharityComments(ein, charityName) {
 }
 
 // Register a donator to the charity with given ein
-export async function addDonator(ein, donator, amount) {
-  console.log(`subscribing ${donator} to ${ein} with the amount ${amount}`);
+export async function donate(ein, donator, amount, charityName) {
+  console.log(`subscribing ${donator} to ${charityName} with the amount ${amount}`);
   const charityRef = doc(db, "charities", ein);
   const qSnap = await getDoc(charityRef);
 
@@ -139,6 +141,21 @@ export async function addDonator(ein, donator, amount) {
       { merge: true }
     );
   }
+
+
+  const userRef = doc(db, "users", auth.currentUser.uid);
+  const docSnap = await getDoc(userRef);
+
+  const donationHistory = docSnap.data().donationHistory;
+  donationHistory.push({
+    name: charityName,
+    amount: amount,
+  })
+
+  await setDoc(userRef, {
+    donationHistory: donationHistory,
+    donationTotal: docSnap.data().donationTotal += amount,
+  }, { merge: true });
 }
 
 // console.log(await getCharities("children"));
