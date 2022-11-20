@@ -79,7 +79,7 @@ export async function getCharities(searchTerm) {
   console.log(`search for ${searchTerm?.replace(/ /g, "%20")}`);
 
   const response = await fetch(
-    `https://api.data.charitynavigator.org/v2/Organizations?app_id=82ee3118&app_key=9299ff0993ecbf62a5a18c8c4e8ae23c&pageSize=30&rated=true&search=${searchTerm?.replace(/ /g, "%20") ?? ""
+    `https://api.data.charitynavigator.org/v2/Organizations?app_id=28beb4f1&app_key=e9d0e657b54e8e4c4520b861d7197a68&pageSize=30&rated=true&search=${searchTerm?.replace(/ /g, "%20") ?? ""
     }&searchType=NAME_ONLY`
   );
   const json = await response.json();
