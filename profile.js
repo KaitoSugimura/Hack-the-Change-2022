@@ -31,7 +31,8 @@ function add_comment(){
     let image = document.createElement('img');
     let text = document.createElement('div');
     text.className = "commentText";
-    text.textContent = "Thank you for helping me I really appreciate it and I am so grateful for the help that I appreciated";
+    text.textContent = "Thank you for helping me I really appreciate it";
+    text.style.fontSize = "x-small";
     image.src = "images/speechbubble.png.png";
     commentBox.appendChild(comment);
     comment.appendChild(text);
