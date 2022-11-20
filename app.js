@@ -54,13 +54,14 @@ auth.onAuthStateChanged(async user => {
 // Creates databse entry for new user
 export async function newUser(user) {
   await setDoc(doc(db, "users", user.uid), {
-    capybaras: 1,
-    pandas: 2,
-    frogs: 1,
-    pigs: 1,
-    tigers: 1,
+    // capybaras: 1,
+    // pandas: 2,
+    // frogs: 1,
+    // pigs: 1,
+    // tigers: 1,
+    userName: "JoshuaWalters",
     favoriteCharity: "UNICEF",
-    tier: "panda",
+    tier: "capybara",
     donationHistory: [
       {
         name: "UNICEF",

@@ -2,7 +2,7 @@
 let animalImages = ["images/capybara.gif","images/panda.gif","images/frog.gif","images/wolf.gif","images/pig.gif","images/Tiger.gif"];
 const profileImage = document.querySelector(".profileimage");
 let userData = [];
-let tiervals = [10, 50, 100, 500, 1000, 2000];
+const tiervals = [10, 50, 100, 500, 1000, 2000];
 let points = 0;
 
 //Event Handlers
