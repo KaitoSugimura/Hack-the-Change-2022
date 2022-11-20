@@ -27,6 +27,8 @@ img{
 
 .commentText{
     position: absolute;
+    font-size: 2.4rem !important;
+    padding: 0.5rem 1rem;
     
     top: 10%;
     left: 10%;
@@ -34,6 +36,7 @@ img{
 
 .comment{
     position: relative;
+
 }
 
 .commentContainer{
