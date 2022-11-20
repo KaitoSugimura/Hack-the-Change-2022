@@ -8,6 +8,7 @@ function set_userData(){
     userData.push("Name: Joshua Walters");
     userData.push("Total Donations: 100000$");
     userData.push("Favorite Charity: WWF");
+    userData.push("Tier; Capybara");
     console.log(userData)
 }
 
@@ -26,13 +27,13 @@ function unfold_profile(){
     let profile = document.querySelector(".profile");
     if(profile.style.width == "80%"){
         profile.style.width ="fit-content";
-        for(let i =0;i<3;i++){
+        for(let i =0;i<userData.length;i++){
             profile.removeChild(profile.lastElementChild);
         }
     }
     else{
         profile.style.width = "80%";
-        for(let i =0; i<3;i++){
+        for(let i =0; i<userData.length;i++){
             let newInfo = document.createElement('div');
             newInfo.className = "userInfo";
             newInfo.textContent = userData[i];
