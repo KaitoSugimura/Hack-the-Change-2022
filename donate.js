@@ -98,8 +98,7 @@ export async function getCharities(searchTerm) {
         ein: charity.ein,
         // score: charity.currentRating.score,
         comments: await getCharityComments(charity.ein, charity.charityName),
-      }))
-    );
+      })));
   }
 
 
@@ -111,7 +110,7 @@ export async function getCharities(searchTerm) {
 // Returns array of comments for charity with given ein
 export async function getCharityComments(ein, charityName) {
   const charityRef = doc(db, "charities", ein);
-  const docSnap = await getDoc(charityRef);
+  let docSnap = await getDoc(charityRef);
 
   if (!docSnap.exists()) {
     await setDoc(charityRef, {
@@ -121,6 +120,7 @@ export async function getCharityComments(ein, charityName) {
     });
   }
 
+  docSnap = await getDoc(charityRef);
   return docSnap.data().comments;
 }
 
