@@ -2,13 +2,15 @@
 let animalImages = ["images/capybara.gif","images/panda.gif","images/frog.gif","images/wolf.gif","images/pig.gif","images/Tiger.gif"];
 const profileImage = document.querySelector(".profileimage");
 let userData = [];
+let tiervals = [10, 50, 100, 500, 1000, 2000];
+let points = 0;
 
 //Event Handlers
 function set_userData(){
     userData.push("Name: Joshua Walters");
     userData.push("Total Donations: 100000$");
     userData.push("Favorite Charity: WWF");
-    userData.push("Tier: Capybara");
+    userData.push("Tier: 1");
     console.log(userData)
 }
 
@@ -37,6 +39,8 @@ function add_comment(){
 }
 
 function unfold_profile(){
+    points += 20;
+    put_capybara();
     let profile = document.querySelector(".profile");
     if(profile.lastElementChild.className != "profileimage"){
         profile.style.width ="fit-content";
@@ -58,14 +62,22 @@ function unfold_profile(){
 //Methods
 function put_capybara(){
     let canvas = document.querySelector('.animalContainer');
-    for(let i =0; i < 6;i++){
+    let max =0;
+    for(let i =0;i<tiervals.length;i++){
+        if(points >= tiervals[i]){
+            max = i+1;
+        }
+    }
+    console.log("points: "+points+" max: "+max);
+    if(canvas.childElementCount != max){
         var newCapy = document.createElement('div');
         newCapy.className = "innerImage";
         var image = document.createElement('img');
-        image.src = animalImages[i];
+        image.src = animalImages[max-1];
         newCapy.appendChild(image);
         canvas.appendChild(newCapy);
         add_comment();
+
     }
 }
 
