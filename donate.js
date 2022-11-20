@@ -79,7 +79,7 @@ export async function getCharities(searchTerm) {
   console.log(`search for ${searchTerm?.replace(/ /g, "%20")}`);
 
   const response = await fetch(
-    `https://api.data.charitynavigator.org/v2/Organizations?app_id=82ee3118&app_key=9299ff0993ecbf62a5a18c8c4e8ae23c&pageSize=30&rated=true&search=${searchTerm?.replace(/ /g, "%20") ?? ""
+    `https://api.data.charitynavigator.org/v2/Organizations?app_id=28beb4f1&app_key=e9d0e657b54e8e4c4520b861d7197a68&pageSize=30&rated=true&search=${searchTerm?.replace(/ /g, "%20") ?? ""
     }&searchType=NAME_ONLY`
   );
   const json = await response.json();
@@ -98,8 +98,7 @@ export async function getCharities(searchTerm) {
         ein: charity.ein,
         // score: charity.currentRating.score,
         comments: await getCharityComments(charity.ein, charity.charityName),
-      }))
-    );
+      })));
   }
 
 
@@ -111,7 +110,7 @@ export async function getCharities(searchTerm) {
 // Returns array of comments for charity with given ein
 export async function getCharityComments(ein, charityName) {
   const charityRef = doc(db, "charities", ein);
-  const docSnap = await getDoc(charityRef);
+  let docSnap = await getDoc(charityRef);
 
   if (!docSnap.exists()) {
     await setDoc(charityRef, {
@@ -121,6 +120,7 @@ export async function getCharityComments(ein, charityName) {
     });
   }
 
+  docSnap = await getDoc(charityRef);
   return docSnap.data().comments;
 }
 
