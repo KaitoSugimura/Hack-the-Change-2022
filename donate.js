@@ -67,8 +67,12 @@ async function populateCharities(searchTerm) {
   }
 }
 
+const NoDonationsFound = document.querySelector(".No-donations-found");
+const loading = document.querySelector(".loading-message");
 // Returns an array of info for the top 5 charities relevant to searchTerm
 export async function getCharities(searchTerm) {
+  NoDonationsFound.classList.remove("Display-NMF");
+  loading.classList.add("Display-NMF");
   console.log(`search for ${searchTerm?.replace(/ /g, "%20")}`);
 
   const response = await fetch(
@@ -78,18 +82,26 @@ export async function getCharities(searchTerm) {
   );
   const json = await response.json();
 
-  // console.log(json);
-  const charities = await Promise.all(
-    json.map(async (charity) => ({
-      name: charity.charityName,
-      tagLine: charity.tagLine,
-      url: charity.charityNavigatorURL,
-      ein: charity.ein,
-      score: charity.currentRating.score,
-      comments: await getCharityComments(charity.ein, charity.charityName),
-    }))
-  );
+  var charities;
+  
+  if(json.errorMessage){
+    console.log("ERROR");
+    NoDonationsFound.classList.add("Display-NMF");
+  } else{
+    charities = await Promise.all(
+      json.map(async (charity) => ({
+        name: charity.charityName,
+        tagLine: charity.tagLine,
+        url: charity.charityNavigatorURL,
+        ein: charity.ein,
+        // score: charity.currentRating.score,
+        // comments: await getCharityComments(charity.ein, charity.charityName),
+      }))
+    );
+  }
 
+  loading.classList.remove("Display-NMF");
+  
   return charities;
 }
 

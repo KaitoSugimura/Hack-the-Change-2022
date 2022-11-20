@@ -106,3 +106,4 @@ async function getCharitiesDonatedTo(user) {
   const qSnap = await getDocs(q);
   return qSnap;
 }
+
