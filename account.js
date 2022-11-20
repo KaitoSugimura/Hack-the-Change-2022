@@ -26,4 +26,10 @@ auth.onAuthStateChanged(async user => {
 })
 // HISTORY.innerHTML = getCharitiesDonatedTo(auth.currentUser);
 
+const userDonations = await getCharitiesDonatedTo(getCurrentUser());
+HISTORY.innerHTML = userDonations.map(
+  (data) => `
+    <li>$<span class="donation-amount">${data.total}</span> - <span class="donation-name">${data.history}</span></li>`
+).join("");
+
 // console.log(async getCharitiesDonatedTo(auth.currentUser));
