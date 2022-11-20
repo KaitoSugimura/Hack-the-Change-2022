@@ -32,7 +32,7 @@ img{
     margin: 0 auto;
     padding-left: 10px;
     padding-right: 10px;
-    height: 15%;
+    height: 20%;
     left: 10%;
     top: 60px;
     background-color: rgba(255,255,255,0.5);
@@ -44,5 +44,16 @@ img{
     width: fit-content;
     background-color: white;
     border-radius: 50px;
-    border: solid black;
 }
+.userInfo{
+    margin: 5px;
+    display: flex;
+    height: 80%;
+    background-color: white;
+    border-radius: 50px;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+
+}
+
