@@ -1,170 +1,195 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  html {
-    font-size: 62.5%;
-    overflow-x: hidden;
-    font-family: "Comfortaa";
-  }
-  
-  .container {
-    max-width: 130rem;
-    padding: 0 3.2rem;
-    margin: 0 auto;
-  }
-  
-  /* nav ******************  ******************  ****************** */
-  
-  header {
-    height: 6rem;
-  }
-  
-  .main-nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-    background-color: #c8a2c8;
-    z-index: 100;
-  }
-  
-  .main-nav-list {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 6rem;
-  }
-  
-  .main-nav-link {
-    padding: 1rem;
-    cursor: pointer;
-    font-size: 2rem;
-  }
-  
-  /* main ******************  ******************  ****************** */
-  
-  .hero {
-    position: relative;
-  }
-  
-  .hero-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    z-index: -99;
-    transition: 0.5s all;
-  }
-  
-  .hero-inner:has(#Hero1:hover){
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-  }
-  
-  .hero-inner:has(#Hero2:hover){
-      grid-template-columns: 1fr 2fr 1fr 1fr;
-  }
-  .hero-inner:has(#Hero3:hover){
-      grid-template-columns: 1fr 1fr 2fr 1fr;
-  }
-  .hero-inner:has(#Hero4:hover){
-      grid-template-columns: 1fr 1fr 1fr 2fr;
-  }
-  
-  #Hero1{
-      background-image: linear-gradient(
-        to right bottom,
-        rgba(236, 166, 106, 0.2),
-        rgba(215, 135, 65, 0.2)
-      ),
-      url("../img/Hero.jpg");
-  }
-  
-  #Hero2{
-      background-image: linear-gradient(
-        to right bottom,
-        rgba(236, 166, 106, 0.2),
-        rgba(215, 135, 65, 0.2)
-      ),
-      url("../img/Hero2.jpg");
-  }
-  
-  #Hero3{
-      background-image: linear-gradient(
-        to right bottom,
-        rgba(236, 166, 106, 0.2),
-        rgba(215, 135, 65, 0.2)
-      ),
-      url("../img/Hero3.jpg");
-  }
-  
-  #Hero4{
-      background-image: linear-gradient(
-        to right bottom,
-        rgba(236, 166, 106, 0.2),
-        rgba(215, 135, 65, 0.2)
-      ),
-      url("../img/Hero4.jpg");
-  }
-  
-  
-  .main-heading{
-      position: absolute;
-      white-space: nowrap;
-      top:50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 6.8rem;
-      color: #fff;
-      pointer-events: none;
-  }
-  
-  .hero-img {
-    background-size: cover;
-    background-position: center;
-    border-left: 0.5rem rgba(0, 0, 0, 0.413) solid;
-  
-    height: 100vh;
-    width: 100%;
-  }
-  
-  .background-image {
-    position: fixed;
-    background-image: url("../img/Hero2.jpg");
-    background-size: cover;
-    background-position: center;
-  
-    height: 100vh;
-    width: 100%;
-    z-index: -100;
-  }
-  
-  .main-info {
-    height: 100rem;
-    position: relative;
-    background-color: #fff;
-  }
-  
-  .main-info:before {
-    content: " ";
-    display: block;
-    height: 45px;
-    background-image: url("https://ecorelos.com/wp-content/uploads/2020/04/torn-border2.png");
-    position: absolute;
-    width: 300%;
-    top: -4.5rem;
-    left: -500px;
-  }
-  
-  .main-info:after {
-    content: " ";
-    display: block;
-    width: 300%;
-    height: 65px;
-    background-image: url("https://ecorelos.com/wp-content/uploads/2020/04/torn-border2upside.png");
-    position: absolute;
-    bottom: -4.5rem;
-    left: -500px;
-    z-index: 1;
-  }
-  
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; /* 1rem == 10px */
+  overflow-x: hidden;
+  font-family: "Comfortaa";
+}
+
+.container {
+  max-width: 130rem;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+}
+
+.grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 9.6rem;
+  column-gap: 4.8rem;
+}
+
+/* nav ******************  ******************  ****************** */
+
+header {
+  height: 6rem;
+}
+
+.main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background-color: #c8a2c8;
+  z-index: 100;
+}
+
+.main-nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 6rem;
+}
+
+.main-nav-link {
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+/* main ******************  ******************  ****************** */
+
+.hero {
+  position: relative;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  z-index: -99;
+  transition: 0.5s all;
+}
+
+.hero-inner:has(#Hero1:hover) {
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+}
+
+.hero-inner:has(#Hero2:hover) {
+  grid-template-columns: 1fr 2fr 1fr 1fr;
+}
+.hero-inner:has(#Hero3:hover) {
+  grid-template-columns: 1fr 1fr 2fr 1fr;
+}
+.hero-inner:has(#Hero4:hover) {
+  grid-template-columns: 1fr 1fr 1fr 2fr;
+}
+
+#Hero1 {
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(236, 166, 106, 0.2),
+      rgba(215, 135, 65, 0.2)
+    ),
+    url("../img/Hero.jpg");
+}
+
+#Hero2 {
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(236, 166, 106, 0.2),
+      rgba(215, 135, 65, 0.2)
+    ),
+    url("../img/Hero2.jpg");
+}
+
+#Hero3 {
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(236, 166, 106, 0.2),
+      rgba(215, 135, 65, 0.2)
+    ),
+    url("../img/Hero3.jpg");
+}
+
+#Hero4 {
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(236, 166, 106, 0.2),
+      rgba(215, 135, 65, 0.2)
+    ),
+    url("../img/Hero4.jpg");
+}
+
+.main-heading {
+  position: absolute;
+  white-space: nowrap;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 6.8rem;
+  color: #fff;
+  pointer-events: none;
+}
+
+.hero-img {
+  background-size: cover;
+  background-position: center;
+  border-left: 0.5rem rgba(0, 0, 0, 0.413) solid;
+
+  height: 100vh;
+  width: 100%;
+}
+
+.background {
+  position: fixed;
+  background-color: #c8a2c8;
+
+  height: 100vh;
+  width: 100%;
+  z-index: -100;
+}
+
+/* main info ******************  ****************** */
+
+.main-info {
+  padding: 9.6rem 0;
+  position: relative;
+  background-color: #fff;
+}
+
+.main-info:before {
+  content: " ";
+  display: block;
+  height: 45px;
+  background-image: url("https://ecorelos.com/wp-content/uploads/2020/04/torn-border2.png");
+  position: absolute;
+  width: 300%;
+  top: -4.5rem;
+  left: -500px;
+}
+
+.main-info:after {
+  content: " ";
+  display: block;
+  width: 300%;
+  height: 65px;
+  background-image: url("https://ecorelos.com/wp-content/uploads/2020/04/torn-border2upside.png");
+  position: absolute;
+  bottom: -4.5rem;
+  left: -500px;
+  z-index: 1;
+}
+
+.info-img{
+  width: 100%;
+}
+
+.info-div{
+  height: fit-content;
+  align-self: center;
+}
+
+.info-header{
+  font-size: 4.8rem;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+}
+
+.info-p{
+  font-size: 2.4rem;
+  line-height: 1.5;
+}
