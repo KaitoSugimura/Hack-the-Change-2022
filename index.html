@@ -1,106 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap"
-      rel="stylesheet"
-    />
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
 
-    <!-- JS -->
-    <script defer src="donate.js"></script>
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap" rel="stylesheet" />
 
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="background"></div>
-    <!-- HEADER -------------------------------------------------------------->
-    <header class="header">
-      <nav class="main-nav">
-        <div class="main-nav-list container">
-          <div class="nav-donations">
-            <a class="main-nav-link">Donate</a>
-          </div>
-          <div class="nav-home">
-            <a href="#">
-              <img class="logo" alt="Logo" src="." />
-            </a>
-          </div>
-          <div class="nav-pls">
-            <a class="main-nav-link" href="profile.html">Profile</a>
-            <a class="main-nav-link">Login</a>
-            <a class="main-nav-link nav-cta">Sign up</a>
-          </div>
+  <!-- JS -->
+  <script defer type="module" src="firebase.js"></script>
+  <script defer type="module" src="app.js"></script>
+  <script defer type="module" src="donate.js"></script>
+
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="background"></div>
+  <!-- HEADER -------------------------------------------------------------->
+  <header class="header">
+    <nav class="main-nav">
+      <div class="main-nav-list container">
+        <div class="nav-donations">
+          <a class="main-nav-link">Donate</a>
         </div>
-      </nav>
-      <!-- END of HEADER -->
-    </header>
-
-    <main>
-      <!-- HERO -------------------------------------------------------------->
-      <section class="hero">
-        <div class="hero-inner">
-          <div class="hero-img" id="Hero1"></div>
-          <div class="hero-img" id="Hero2"></div>
-          <div class="hero-img" id="Hero3"></div>
-          <div class="hero-img" id="Hero4"></div>
+        <div class="nav-home">
+          <a href="#">
+            <img class="logo" alt="Logo" src="." />
+          </a>
         </div>
-        <h1 class="main-heading">A world plentiful of smiles</h1>
-      </section>
-      <!-- END of HERO -->
-
-      <section class="main-info">
-        <div class="container grid-2col">
-          <!-- 1 -->
-          <img
-            class="info-img"
-            alt="Person giving tomatos"
-            src="img/Donate.jpg"
-          />
-          <div class="info-div">
-            <h2 class="info-header">Browse charities</h2>
-            <p class="info-p">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi
-              ducimus velit quisquam corporis tenetur voluptate impedit!
-            </p>
-          </div>
-          <!-- 2 -->
-          <div class="info-div">
-            <h2 class="info-header">Donate</h2>
-            <p class="info-p">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi
-              ducimus velit quisquam corporis tenetur voluptate impedit!
-            </p>
-          </div>
-          <img
-            class="info-img"
-            alt="Person giving tomatos"
-            src="img/Donate.jpg"
-          />
-          <!-- 3 -->
-          <img
-            class="info-img"
-            alt="Person giving tomatos"
-            src="img/Donate.jpg"
-          />
-          <div class="info-div">
-            <h2 class="info-header">See the impact you've made!</h2>
-            <p class="info-p">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi
-              ducimus velit quisquam corporis tenetur voluptate impedit!
-            </p>
-          </div>
+        <div class="nav-pls">
+          <a class="main-nav-link" href="profile.html">Profile</a>
+          <a class="main-nav-link sign-in-out">Sign In</a>
+          <!-- <a class="main-nav-link nav-cta">Sign up</a> -->
         </div>
-      </section>
-    </main>
-  </body>
+      </div>
+    </nav>
+    <!-- END of HEADER -->
+  </header>
+
+  <main>
+    <!-- HERO -------------------------------------------------------------->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-img" id="Hero1"></div>
+        <div class="hero-img" id="Hero2"></div>
+        <div class="hero-img" id="Hero3"></div>
+        <div class="hero-img" id="Hero4"></div>
+      </div>
+      <h1 class="main-heading">A world plentiful of smiles</h1>
+    </section>
+    <!-- END of HERO -->
+
+    <section class="main-info">
+      <div class="container grid-2col">
+        <!-- 1 -->
+        <img class="info-img" alt="Person giving tomatos" src="img/Donate.jpg" />
+        <div class="info-div">
+          <h2 class="info-header">Browse charities</h2>
+          <p class="info-p">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi
+            ducimus velit quisquam corporis tenetur voluptate impedit!
+          </p>
+        </div>
+        <!-- 2 -->
+        <div class="info-div">
+          <h2 class="info-header">Donate</h2>
+          <p class="info-p">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi
+            ducimus velit quisquam corporis tenetur voluptate impedit!
+          </p>
+        </div>
+        <img class="info-img" alt="Person giving tomatos" src="img/Donate.jpg" />
+        <!-- 3 -->
+        <img class="info-img" alt="Person giving tomatos" src="img/Donate.jpg" />
+        <div class="info-div">
+          <h2 class="info-header">See the impact you've made!</h2>
+          <p class="info-p">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi
+            ducimus velit quisquam corporis tenetur voluptate impedit!
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+
 </html>
