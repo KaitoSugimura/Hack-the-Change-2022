@@ -228,6 +228,7 @@ header {
 /* footer ******************  ****************** */
 
 .footer{
+  position: relative;
   padding: 12.8rem 0;
   border-top: 1px solid #eee;
 }
@@ -299,4 +300,14 @@ header {
 .footer-link:hover,
 .footer-link:active{
   color: #555;
+}
+
+.made-by{
+  position: absolute;
+  bottom: 3.6rem;
+  left: 50%;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  font-size: 1.8rem;
+  text-align: center;
 }
