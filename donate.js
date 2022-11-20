@@ -1,5 +1,4 @@
 import { firebase } from "./firebase.js";
-import { getAuth, signInWithPopup, signOut, GoogleAuthProvider, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js"
 import { getFirestore, collection, doc, getDoc, addDoc, setDoc, Timestamp, query, where, onSnapshot, orderBy } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
 
 const db = getFirestore(firebase);
@@ -14,40 +13,34 @@ export async function getCharities(searchTerm) {
     tagLine: charity.tagLine,
     url: charity.charityNavigatorURL,
     score: charity.currentRating.score,
-    comments: await getCharityComments(charity.ein),
+    comments: await getCharityComments(charity.ein, charity.charityName),
   })));
-  // console.log(charities);
 
   return charities;
 }
 
 // Returns array of comments for charity with given ein
-async function getCharityComments(ein) {
+export async function getCharityComments(ein, charityName) {
   const charityRef = doc(db, "charities", ein);
   const docSnap = await getDoc(charityRef);
 
-  if (docSnap.exists()) {
-  } else {
+  if (!docSnap.exists()) {
     await setDoc(charityRef, {
+      name: charityName,
       comments: [
-        "COMMENT UNO",
-      ]
+        `Thank you, all who donated to ${charityName}!`,
+      ],
+      subscribers: [
+        "lVIel1RoXVdkXuf6ersIj9WGhZf2",
+      ],
     });
   }
-  // TEST, REMOVE LATER
-  await setDoc(charityRef, {
-    comments: [
-      ein,
-    ],
-    subscribers: [
-      "lVIel1RoXVdkXuf6ersIj9WGhZf2",
-    ],
-  });
+
   return docSnap.data().comments;
 }
 
 // Register a donator to the charity with given ein
-async function addDonator(ein, donator) {
+export async function addDonator(ein, donator) {
   const charityRef = doc(db, "charities", ein);
   const qSnap = await getDoc(charityRef);
 
@@ -61,5 +54,5 @@ async function addDonator(ein, donator) {
   }
 }
 
-// getCharities("children");
+// console.log(await getCharities("children"));
 // addDonator("311811917", "lVIel1RoXVdkXuf6ersIj9WGhZf2");
