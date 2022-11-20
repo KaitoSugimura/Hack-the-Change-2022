@@ -28,6 +28,7 @@ auth.onAuthStateChanged(async user => {
     console.log("logged in");
     signInOutBtn.innerHTML = "Sign out"
     signInOutBtn.style.backgroundColor = "#d6336c";
+    console.log(await getUserData(user));
   } else {
     console.log("logged out");
     signInOutBtn.innerHTML = "Sign in"
@@ -51,15 +52,31 @@ auth.onAuthStateChanged(async user => {
 })
 
 // Creates databse entry for new user
-async function newUser(user) {
+export async function newUser(user) {
   await setDoc(doc(db, "users", user.uid), {
-    capybaras: 3,
-    pandas: 0,
+    capybaras: 1,
+    pandas: 2,
+    frogs: 1,
+    pigs: 1,
+    tigers: 1,
+    favoriteCharity: "UNICEF",
+    tier: "panda",
+    donationHistory: [
+      {
+        name: "UNICEF",
+        amount: 200.50,
+      },
+      {
+        name: "American Red Cross",
+        amount: 153.5,
+      },
+    ],
+    donationTotal: 354.00,
   });
 }
 
 // Returns pets owned by user
-async function getPets(user) {
+export async function getPets(user) {
   const userRef = doc(db, "users", user.uid);
   const docSnap = await getDoc(userRef);
 
@@ -71,7 +88,7 @@ async function getPets(user) {
 }
 
 // Returns up to n thank-yous for user
-async function getThankYou(user, n) {
+export async function getThankYou(user, n) {
   const qSnap = await getCharitiesDonatedTo(user);
 
   let thankYous = [];
@@ -86,7 +103,7 @@ async function getThankYou(user, n) {
 }
 
 // Returns up to n personal thank-yous for user
-async function getPersonalThankYous(user, n) {
+export async function getPersonalThankYous(user, n) {
   const thankYousRef = collection(db, "personalThankYous");
   const q = query(thankYousRef, where("to", "==", user.uid));
   const qSnap = await getDocs(thankYousRef);
@@ -100,10 +117,27 @@ async function getPersonalThankYous(user, n) {
 }
 
 // Returns charities that user donated to
-async function getCharitiesDonatedTo(user) {
+export async function getCharitiesDonatedTo(user) {
   const charitiesRef = collection(db, "charities");
   const q = query(charitiesRef, where("subscribers", "array-contains", user.uid));
   const qSnap = await getDocs(q);
   return qSnap;
 }
 
+// Returns user information
+export async function getUserData(user) {
+  if (user) {
+    const userRef = doc(db, "users", user.uid);
+    const docSnap = await getDoc(userRef);
+
+    let data = {}
+    if (docSnap.exists()) {
+      data = docSnap.data();
+    }
+    data.name = user.displayName;
+    data.email = user.email;
+    data.photo = user.photoURL;
+
+    return data;
+  }
+}
