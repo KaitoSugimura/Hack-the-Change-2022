@@ -9,7 +9,7 @@ console.log(charities);
 const charitiesContent = charities.map(charity => `
     <div class="charity-container">
       <div class="charity-imageContainer">
-        <img class="charity-image" src="image" alt="" />
+        <img class="charity-image" src="img/Donate.jpg" alt="" />
       </div>
       <div class="charity-info">
         <span class="charity-title">${charity.name}</span>
