@@ -2,6 +2,25 @@ import { firebase } from "./firebase.js";
 import { getFirestore, collection, doc, getDoc, addDoc, setDoc, Timestamp, query, where, onSnapshot, orderBy } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
 
 const db = getFirestore(firebase);
+const charitiesEl = document.querySelector(".charities");
+
+const charities = await getCharities("children");
+console.log(charities);
+const charitiesContent = charities.map(charity => `
+    <div class="charity-container">
+      <div class="charity-imageContainer">
+        <img class="charity-image" src="image" alt="" />
+      </div>
+      <div class="charity-info">
+        <span class="charity-title">${charity.name}</span>
+        <p class="charity-description">${charity.tagLine}</p>
+        <span class="charity-price">Choose a donation amount</span>
+        <button class="charity-addToCart" type="button" onClick={onClick}>Donate</button>
+      </div>
+    </div>
+`)
+charitiesEl.innerHTML = charitiesContent.join('');
+
 
 // Returns an array of info for the top 5 charities relevant to searchTerm
 export async function getCharities(searchTerm) {
