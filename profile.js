@@ -8,7 +8,7 @@ let points = 0;
 //Event Handlers
 function set_userData(){
     userData.push("Name: Joshua Walters");
-    userData.push("Total Donations: 100000$");
+    userData.push("Total Donations: "+points);
     userData.push("Favorite Charity: WWF");
     userData.push("Tier: 1");
     console.log(userData)
@@ -39,9 +39,14 @@ function add_comment(){
     comment.appendChild(image);
 }
 
-function unfold_profile(){
-    points += 20;
+function add_points(value){
+    points += value;
+    userData[1] = "Total Donations: "+points;
     put_capybara();
+}
+
+function unfold_profile(){
+    add_points(20);
     let profile = document.querySelector(".profile");
     if(profile.lastElementChild.className != "profileimage"){
         profile.style.width ="fit-content";
