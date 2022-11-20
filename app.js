@@ -143,5 +143,5 @@ export async function getUserData(user) {
 }
 
 export async function getCurrentUser(){
-  return auth.currentUser.uid;
+  return auth.currentUser;
 }
