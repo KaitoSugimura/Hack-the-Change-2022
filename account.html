@@ -78,32 +78,43 @@
         <h1 class="account-heading">Account</h1>
 
         <h2 class="heading-secondary">Basics</h2>
-        <div class="basics-container">
-          <div class="basics">
-            <div class="basics-flex">
-              <h3 class="heading-tertiary basics-name">Name:</h3>
-              <div id="NAME">Kaito Sugimura</div>
-            </div>
+        <div class="container-small">
+          <div class="container-inner">
+            <div class="basics">
+              <div class="basics-flex">
+                <h3 class="heading-tertiary basics-name">Name:</h3>
+                <div id="NAME">Kaito Sugimura</div>
+              </div>
 
-            <div class="basics-flex">
-              <h3 class="heading-tertiary basics-email">Email:</h3>
-              <div id="EMAIL">Sugimurakaito@gmail.com</div>
+              <div class="basics-flex">
+                <h3 class="heading-tertiary basics-email">Email:</h3>
+                <div id="EMAIL">Sugimurakaito@gmail.com</div>
+              </div>
             </div>
           </div>
         </div>
 
         <h2 class="heading-secondary">Payment Methods</h2>
-        <button>Add payment method</button>
+        <div class="container-small">
+          <div class="container-inner">
+            <button class="payment-button">Add payment method</button>
+          </div>
+        </div>
+
         <h2 class="heading-secondary">History</h2>
-        <div id="HISTORY">
-          <ul>
-            <li>
-              <span class="donation-name">UNICEF USA</span> - $<span
-                class="donation-amount"
-                >10</span
-              >
-            </li>
-          </ul>
+        <div class="container-small">
+          <div id="HISTORY" class="container-inner">
+            <ul class="donate">
+              <li>
+                $<span class="donation-amount">10</span> -
+                <span class="donation-name">UNICEF USA</span>
+              </li>
+              <li>
+                $<span class="donation-amount">10</span> -
+                <span class="donation-name">UNICEF USA</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
     </main>
