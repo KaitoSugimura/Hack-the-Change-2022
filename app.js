@@ -56,9 +56,21 @@ export async function newUser(user) {
   await setDoc(doc(db, "users", user.uid), {
     capybaras: 1,
     pandas: 2,
+    frogs: 1,
+    pigs: 1,
+    tigers: 1,
     favoriteCharity: "UNICEF",
     tier: "panda",
-    donationHistory: [],
+    donationHistory: [
+      {
+        name: "UNICEF",
+        amount: 200.50,
+      },
+      {
+        name: "American Red Cross",
+        amount: 153.5,
+      },
+    ],
     donationTotal: 354.00,
   });
 }
